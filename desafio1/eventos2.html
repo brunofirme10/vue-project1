@@ -1,0 +1,36 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <p></p>
+    <button v-on:click="somar(5)"> Passos {{ contador }} </button>
+    <p v-on:mousemove="atualiza"> Mouse {{ x }} e {{ y }}
+        <span v-on:mousemove.stop.prevent="" style="background-color: red">Pare</span>
+    </p>
+    <a v-on:click.stop.prevent="" href="http://google.com"></a>
+    <hr>
+    <input type="text" v-on:keyup="exibirAlert">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            somar(passo) {
+                this.contador += passo
+            },
+            atualiza(e){
+                this.x = e.clientX
+                this.y = e.clientY
+            },
+            exibirAlert(){
+                alert('surprise modafoka')
+            },
+        },
+    })
+
+</script>
